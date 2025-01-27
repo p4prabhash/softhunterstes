@@ -59,6 +59,32 @@
                 </tbody>
             </table>
         </div>
+
+
+        <div class="card p-4 mt-4">
+    <h4>Rankings</h4>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Display Name</th>
+                <th>Score</th>
+                <th>Completion Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($processedRankings as $rank)
+                <tr>
+                    <td>{{ $rank['rank'] }}</td>
+                    <td>{{ $rank['display_name'] }}</td>
+                    <td>{{ $rank['score'] }}</td>
+                    <td>{{ $rank['completion_time'] }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+</div>
+
     </div>
 
     <script>

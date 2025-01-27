@@ -18,7 +18,7 @@ use App\Http\Controllers\ToDoController;
 
 Auth::routes();
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/admin/create-category', [AdminController::class, 'createCategory'])->name('admin.createCategory');
@@ -27,5 +27,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/user/dashboard', [ToDoController::class, 'dashboard'])->name('user.dashboard');
     Route::post('/user/todos', [ToDoController::class, 'store'])->name('user.todos.store');
     Route::delete('/user/todos/{id}', [ToDoController::class, 'destroy'])->name('user.todos.destroy');
+    Route::get('/rankings', [ToDoController::class, 'showRankings']);
 
 });
