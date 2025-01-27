@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ToDoController;
+use App\Http\Controllers\GoogleCalendarController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/rankings', [ToDoController::class, 'showRankings']);
 
 });
+
+Route::get('google/redirect', [GoogleCalendarController::class, 'redirectToGoogle'])->name('google.redirect');
+Route::get('google-callback', [GoogleCalendarController::class, 'handleGoogleCallback'])->name('google.callback');
+Route::get('google/calendar/events', [GoogleCalendarController::class, 'listGoogleCalendarEvents'])->name('google.calendar.events');
